@@ -1,14 +1,16 @@
 import React from "react";
 // import logo from './logo.svg';
 import "./App.css";
-import User from "./components/User";
+
 import NavBar from "./components/navbar/Navbar";
+import Slider from "./components/slider/Slider";
+import Catagories from "./components/catagories/Catagories";
+import UserHome from "./layout/UserHome";
 
 function App() {
   return (
-    <div className="App">
-      <NavBar />
-      <h2>Welcome to Home</h2>
+    <div>
+      <UserHome />
     </div>
   );
 }
