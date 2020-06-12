@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
 const Footer = () => {
   return (
     <div>
@@ -17,9 +19,9 @@ const Footer = () => {
                   <span className="icon_pin_alt"></span>
                 </div>
                 <div className="iconbox-content">
-                  <a href="#" className="hover-text">
+                  <Link to="#" className="hover-text">
                     <p>1379 Shoreline Parkway, United States</p>
-                  </a>
+                  </Link>
                 </div>
               </div>
 
@@ -237,9 +239,9 @@ const Footer = () => {
             <div className="flat-socails text-right">
               <ul>
                 <li>
-                  <a href="#">
+                  <Link to="#">
                     <span className="fa fa-youtube"></span>
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <a href="#">

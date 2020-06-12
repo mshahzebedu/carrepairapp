@@ -2,6 +2,41 @@ import React from "react";
 const Contact = () => {
   return (
     <div>
+      <section className="page-title  v3 clearfix parallax  parallax5">
+        <div className="overlay"></div>
+        <div className="container">
+          <div className="wrap-page-title">
+            <div className="breakcrums text-center v2">
+              <ul>
+                <li>
+                  <a href="#" className="hover-text">
+                    HOME
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover-text">
+                    PAGES
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="hover-text">
+                    Contact
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div className="page-title-heading text-center v2">
+              <h1>
+                <a href="#" className="hover-text">
+                  Contact Us
+                </a>
+              </h1>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <div className="flat-map style3"></div>
 
       <div className="content-wrap contact-v1-page">
