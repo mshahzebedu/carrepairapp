@@ -1,5 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
+import useForm from "../../utils/useForm";
+
 const Contact = () => {
+  //distructuring
+  const { handleSubmit } = useForm;
+  const [values, setValues] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const handleChange = (e) => {
+    setValues({
+      ...values,
+      [e.target.name]: e.target.value,
+    });
+  };
   return (
     <div>
       <section className="page-title  v3 clearfix parallax  parallax5">
@@ -106,9 +122,16 @@ const Contact = () => {
               data-mobile="40"
               data-smobile="40"
             ></div>
-            <form action="./contact/contact-process.php" id="contact-form">
+            <form onSubmit={handleSubmit}>
               <div className="wrap-input">
-                <input type="text" name="name" placeholder="Name" required="" />
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Name"
+                  required=""
+                  value={values.name}
+                  onChange={handleChange}
+                />
               </div>
               <div className="wrap-input">
                 <input
@@ -116,6 +139,8 @@ const Contact = () => {
                   name="email"
                   required=""
                   placeholder="Email"
+                  value={values.email}
+                  onChange={handleChange}
                 />
               </div>
               <div className="wrap-input">
@@ -124,6 +149,8 @@ const Contact = () => {
                   name="subject"
                   required=""
                   placeholder="Subject"
+                  value={values.subject}
+                  onChange={handleChange}
                 />
               </div>
 
@@ -132,6 +159,8 @@ const Contact = () => {
                   name="message"
                   required=""
                   placeholder="Messager"
+                  value={values.message}
+                  onChange={handleChange}
                 ></textarea>
               </div>
               <div className="wrap-btn">
