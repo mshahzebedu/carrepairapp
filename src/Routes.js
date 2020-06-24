@@ -13,6 +13,7 @@ import Faqs from "./components/faqs/Faqs";
 
 import NavBar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
+//import Test from "./components/Test";
 
 const Routes = () => {
   return (
@@ -28,6 +29,7 @@ const Routes = () => {
         <Route exact path="/about" component={About} />
         <Route exact path="/ourteam" component={OurTeam} />
         <Route exact path="/faqs" component={Faqs} />
+        {/* <Route exact path="/test" component={Test} /> */}
       </Switch>
       <Footer />
     </BrowserRouter>

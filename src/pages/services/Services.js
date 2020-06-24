@@ -1,5 +1,17 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 const Services = () => {
+  const [service, setService] = useState([]);
+
+  useEffect(() => {
+    loadSercices();
+  }, []);
+
+  const loadSercices = async () => {
+    const response = await axios.get("http://localhost:3003/services");
+    setService(response.data);
+  };
+
   return (
     <div>
       <section className="page-title  v3 clearfix parallax  parallax5">
@@ -155,6 +167,7 @@ const Services = () => {
                     </h4>
                   </div>
                 </div>
+                {/* imgbox  */}
 
                 <div className="imgbox style3">
                   <div className="imgbox-img">
@@ -174,6 +187,7 @@ const Services = () => {
                     </h4>
                   </div>
                 </div>
+                {/* imgbox  */}
 
                 <div className="imgbox style3">
                   <div className="imgbox-img">
@@ -187,12 +201,13 @@ const Services = () => {
                       </a>
                     </div>
                   </div>
-                  <div className="imgbox-content text-center">
+                  <div class="imgbox-content text-center">
                     <h4>
                       <a href="#">Break repair</a>
                     </h4>
                   </div>
                 </div>
+                {/* imgbox  */}
 
                 <div className="imgbox style3">
                   <div className="imgbox-img">
@@ -212,7 +227,9 @@ const Services = () => {
                     </h4>
                   </div>
                 </div>
+                {/* imgbox  */}
               </div>
+              {/* flat-imgbox  */}
             </div>
             <div
               className="flat-spacer clearfix"
@@ -221,7 +238,9 @@ const Services = () => {
               data-smobile="0"
             ></div>
           </div>
+          {/* container */}
         </section>
+        {/* flat-our-services  */}
 
         <section className="flat-countdown style2">
           <div className="overlay"></div>
