@@ -1,17 +1,10 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
+
+import { useSelector } from "react-redux";
 const Services = () => {
-  const [service, setService] = useState([]);
+  const service = useSelector((state) => state.ServiceReducer);
 
-  useEffect(() => {
-    loadSercices();
-  }, []);
-
-  const loadSercices = async () => {
-    const response = await axios.get("http://localhost:3003/services");
-    setService(response.data);
-  };
-
+  console.log("data come", service);
   return (
     <div>
       <section className="page-title  v3 clearfix parallax  parallax5">
@@ -148,86 +141,24 @@ const Services = () => {
               data-loop="true"
             >
               <div className="flat-imgbox clearfix style3 owl-carousel">
-                <div className="imgbox style3">
-                  <div className="imgbox-img">
-                    <img
-                      src="/assets/images/home2/our-service-1.png"
-                      alt="automov"
-                    />
-                    <div className="overlay">
-                      <a href="#" className="hover-text">
-                        <span className="arrow_right"></span>
-                      </a>
+                {service.map((item) => (
+                  <div key={item.id} className="imgbox style3">
+                    <div className="imgbox-img">
+                      <img src={item.img} alt="automov" />
+                      <div className="overlay">
+                        <a href="#" className="hover-text">
+                          <span className="arrow_right"></span>
+                        </a>
+                      </div>
+                    </div>
+                    <div className="imgbox-content text-center">
+                      <h4>
+                        {" "}
+                        <a href="#">{item.title}</a>
+                      </h4>
                     </div>
                   </div>
-                  <div className="imgbox-content text-center">
-                    <h4>
-                      {" "}
-                      <a href="#">Tyre and Wheel</a>
-                    </h4>
-                  </div>
-                </div>
-                {/* imgbox  */}
-
-                <div className="imgbox style3">
-                  <div className="imgbox-img">
-                    <img
-                      src="/assets/images/home2/our-service-2.png"
-                      alt="automov"
-                    />
-                    <div className="overlay">
-                      <a href="#" className="hover-text">
-                        <span className="arrow_right"></span>
-                      </a>
-                    </div>
-                  </div>
-                  <div className="imgbox-content text-center">
-                    <h4>
-                      <a href="#">Belt and Hoses</a>
-                    </h4>
-                  </div>
-                </div>
-                {/* imgbox  */}
-
-                <div className="imgbox style3">
-                  <div className="imgbox-img">
-                    <img
-                      src="/assets/images/home2/our-service-3.png"
-                      alt="automov"
-                    />
-                    <div className="overlay">
-                      <a href="#" className="hover-text">
-                        <span className="arrow_right"></span>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="imgbox-content text-center">
-                    <h4>
-                      <a href="#">Break repair</a>
-                    </h4>
-                  </div>
-                </div>
-                {/* imgbox  */}
-
-                <div className="imgbox style3">
-                  <div className="imgbox-img">
-                    <img
-                      src="/assets/images/home2/our-service-4.png"
-                      alt="automov"
-                    />
-                    <div className="overlay">
-                      <a href="#" className="hover-text">
-                        <span className="arrow_right"></span>
-                      </a>
-                    </div>
-                  </div>
-                  <div className="imgbox-content text-center">
-                    <h4>
-                      <a href="#">Lube and Filter</a>
-                    </h4>
-                  </div>
-                </div>
-                {/* imgbox  */}
+                ))}
               </div>
               {/* flat-imgbox  */}
             </div>

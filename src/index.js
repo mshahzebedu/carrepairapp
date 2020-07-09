@@ -2,14 +2,16 @@ import "./index.css";
 import React from "react";
 import Routes from "./Routes";
 import ReactDOM from "react-dom";
-import { createStore } from "redux";
+import { createStore, applyMiddleware, compose } from "redux";
 import { Provider } from "react-redux";
 import * as serviceWorker from "./serviceWorker";
-
+import thunk from "redux-thunk";
 import allReducers from "./redux/reducers/index";
-
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION__COMPOSE__ || compose;
 //all reducers return combineReducers methode
-const store = createStore(allReducers);
+const store = createStore(allReducers, composeEnhancers(applyMiddleware(thunk)));
+
+// window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>

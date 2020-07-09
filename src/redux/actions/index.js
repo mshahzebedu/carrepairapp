@@ -17,6 +17,20 @@ export const removeUser = (index) => {
     payload: index,
   };
 };
+
+export const allServices = () => {
+  return {
+    type: action.AllSERVICES,
+  };
+};
+
+export const saveAppointment = (data) => {
+  return {
+    type: action.SAVEAPPOINTMENT,
+    payload: data,
+  }
+}
+
 //without parameter like
 // export const incremnet = () => {
 //   return {
